@@ -56,7 +56,7 @@ typedef enum
 R_STATE R_CURRENT_STATE =   R_start_en;
 ```
 ### Declare functions
-For robot execution, the provided functions (R_vreadsensors(), R_vforward(), R_vbackward(), R_vright(), and R_vleft()) define essential actions that the robot can undertake These methods encapsulate the fundamental tasks that the robot can perform
+For robot execution, the provided functions (R_vreadsensors(), R_vforward(), R_vbackward(), R_vright(), and R_vleft()) define essential actions that the robot can undertake These methods encapsulate the fundamental tasks that the robot can perform.
 ```bash
 void R_vreadsensors();
 void R_vforward();
