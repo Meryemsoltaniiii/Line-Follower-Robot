@@ -15,7 +15,7 @@ given input the machine performs state transitions and produces outputs.
 
 ## Code Implementation
 ### Macros
-This code defines Arduino pins for six line sensors on the robot: Middle Left, Middle Right, Front Right-Middle, Front Left-Middle, Left, and Right
+This code defines Arduino pins for six line sensors on the robot: Middle Left (MLar), Middle Right (MRar), Front Right-Middle (MRav), Front Left-Middle (MLav), Left (enableL), and Right (enableR).
 ```bash
 #define MLav 2
 #define MLar 4
@@ -25,6 +25,7 @@ This code defines Arduino pins for six line sensors on the robot: Middle Left, M
 #define enableL 11
 ```
 ### Variables
+To initialize the s ensor states, including front, right, left, and middle directions (R_Fsensor_state_u8, R_Rsensor_state_u8, R_Lsensor_state_u8, R_MRsensor_state_u8, R_MLsensor_state_u8), you need to set all to 0.
 ```bash
 static uint8_t timeout = 0;
 static uint8_t c = 0, c1 = 0;
@@ -36,6 +37,7 @@ static uint8_t R_MLsensor_state_u8 = 0
 static uint32_t R_starttime_u32 = 0;
 ```
 ### Define and declare the state machine
+The provided code introduces a state machine that guides a robot's behavior based on a map divided into ten parts. Each state (R_triang_en, R_demi_cercle_en, etc.) corresponds to a specific behavior within a map section.
 ```bash
 typedef enum
 {
@@ -54,6 +56,7 @@ typedef enum
 R_STATE R_CURRENT_STATE =   R_start_en;
 ```
 ### Declare functions
+For robot execution, the provided functions (R_vreadsensors(), R_vforward(), R_vbackward(), R_vright(), and R_vleft()) define essential actions that the robot can undertake These methods encapsulate the fundamental tasks that the robot can perform
 ```bash
 void R_vreadsensors();
 void R_vforward();
@@ -62,6 +65,7 @@ void R_vright();
 void R_vleft();
 ```
 ### Execute the state machine:
+In the loop function :
 ```bash
 switch (R_CURRENT_STATE)
   {
@@ -326,4 +330,3 @@ switch (R_CURRENT_STATE)
       }
   
 ```
-
