@@ -25,7 +25,7 @@ This code defines Arduino pins for six line sensors on the robot: Middle Left (M
 #define enableL 11
 ```
 ### Variables
-To initialize the s ensor states, including front, right, left, and middle directions (R_Fsensor_state_u8, R_Rsensor_state_u8, R_Lsensor_state_u8, R_MRsensor_state_u8, R_MLsensor_state_u8), you need to set all to 0.
+To initialize the sensor states, including front, right, left, and middle directions (R_Fsensor_state_u8, R_Rsensor_state_u8, R_Lsensor_state_u8, R_MRsensor_state_u8, R_MLsensor_state_u8), you need to set all to 0.
 ```bash
 static uint8_t timeout = 0;
 static uint8_t c = 0, c1 = 0;
